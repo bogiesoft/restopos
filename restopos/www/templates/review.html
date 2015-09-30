@@ -1,0 +1,43 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Leave your review</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="submitReview()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input type="text" ng-model="tableData.userData.name" readonly>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" ng-model="tableData.userData.email" readonly>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Mobile</span>
+          <input type="text" ng-model="tableData.userData.mobile" readonly>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Review</span>
+          <textarea name="" id="" placeholder="Please leave your valuable feedback about your experience with us" ng-model="tableData.review"></textarea>
+        </label>
+        <label for="" class="item item-input">
+          <span class="input-label">Ratings</span>
+          <span class="ratings">
+            <i class="icon ion-ios-star"></i>
+            <i class="icon ion-ios-star"></i>
+            <i class="icon ion-ios-star"></i>
+            <i class="icon ion-ios-star"></i>
+            <i class="icon ion-ios-star"></i>
+          </span>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Submit review</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

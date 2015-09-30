@@ -1,0 +1,24 @@
+<style>
+	.col-33{
+		margin: 20px 0;
+	}
+	.tables .icon{
+		font-size: 90px;
+		color: #387ef5;
+	}
+	a{
+		text-decoration: none;
+	}
+    .table.active a i{
+        color: #EC4545
+    }
+</style>
+<ion-side-menus>
+<ion-view view-title="Home">
+  <ion-content>
+    <div class="row tables" ng-repeat="tables in tablerows">        
+        <div class="col-33 text-center {{table.class}}" id="{{table.id}}" ng-repeat="table in tables"><a href="#/app/welcomelogin/{{table.id}}"><i class="icon ion-ios-circle-filled"></i> <br> {{table.name}}</a></div>    	
+    </div>
+  </ion-content>
+</ion-view>
+</ion-side-menus>

@@ -1,0 +1,140 @@
+<style>
+	.something{
+		box-shadow: rgba(0, 0, 0, 0.2) -1px 0px 2px 0px, rgba(0, 0, 0, 0.2) 1px 0px 2px 0px;
+		min-height: 500px;
+	}
+	.padding, .col, .row{
+		padding: 0px;
+	}
+	.button-clear{
+		font-size: 40px;
+	}
+  .categories.active{
+    background-color: #387ef5;
+    color: white;
+  }
+  .item p{
+    text-overflow: initial;
+    white-space: normal;
+  }
+  .price{
+    display: inline;
+  }
+  .item p.price{
+    color: #000;
+  }
+  .ratings{
+    float: right;
+  }
+  .true{
+    background-color: rgba(86, 245, 80, 0.35);
+  }
+  .confirm{
+    background-color: #33cd5f;
+    padding:10px;
+    margin: 10px;
+    color: #FFF;
+    font-weight: bold;
+  }
+  .large{
+    font-size: 50px;
+  }
+</style>
+     <ion-side-menus>
+     
+      <ion-side-menu-content>
+        <!-- <ion-header-bar class="bar-positive">
+          <button class="button button-icon ion-navicon" ng-click="toggleLeft()" ng-hide="$exposeAside.active"></button>
+          <h1 class="title">Content</h1>
+        </ion-header-bar> -->        
+        <ion-content class="padding">
+          <div class="row">
+          	<div class="col">
+          		<div class="list">
+                <div class="item item-divider">
+                  Menu <span ng-show="selectedCategory!=''">- {{selectedCategory}}</span>
+                </div>
+    				    <a class="item item-avatar item-button-right" ng-repeat="menuitem in showMenuItems track by menuitem.name" ng-show="showMenuItems.length!=0">
+    				      	<img src="img/chibi.png">
+    				      	<h2>{{menuitem.name}}</h2>
+                    <p>{{menuitem.desc}}</p>
+    				      	<p class="price">${{menuitem.price}}</p>
+                    <span class="ratings">
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star-half"></i>
+                    </span>
+    				      	<button class="button button-clear button-positive" ng-click="addMenuItem(menuitem)" ng-show="!menuitem.isSelected">
+    					        <i class="icon ion-ios-plus-outline"></i>
+    					      </button>
+                    <button class="button button-clear button-positive" ng-show="menuitem.isSelected">
+                      <i class="icon ion-checkmark-circled"></i>
+                    </button>
+    				    </a>
+                <div class="item item-avatar item-button-right" ng-show="showMenuItems.length==0">
+                    <img src="img/chibi.png">
+                    <h2>Select category on left menu</h2>
+                </div>
+      				</div>
+          	</div>
+          	<div class="col something">
+          		<div class="list">
+                <div class="item item-divider">
+                  Selected Items
+                </div>
+                <div class="item item-button-right" ng-show="cartItems.length!=0">
+                  {{cartItems.length}} items ( ${{cartTotal}} )
+                  <button class="button button-positive" ng-click="confirmOrder()" ng-show="!billRequested">
+                    <i class="icon ion-checkmark-circled"></i>&nbsp;&nbsp;Confirm
+                  </button>
+                </div>
+                <a class="item item-avatar item-button-right {{menuitem.isCompleted}}" ng-repeat="menuitem in cartItems track by menuitem.name" ng-show="cartItems.length!=0">
+                    <img src="img/chibi.png">
+                    <h2>{{menuitem.name}}</h2>
+                    <p>{{menuitem.desc}}</p>
+                    <p>${{menuitem.price}}</p>
+                    <button class="button button-clear button-positive" ng-click="removeMenuItem(menuitem)" ng-show="!menuitem.isCompleted">
+                      <i class="icon ion-ios-minus-outline"></i>
+                    </button>                    
+                </a>
+                <div class="item item-avatar item-button-right" ng-show="cartItems.length==0">
+                    <img src="img/chibi.png">
+                    <h2>No items selected</h2>
+                </div>
+              </div>
+          	</div>
+          </div>
+        </ion-content>
+      </ion-side-menu-content>
+    
+      <ion-side-menu expose-aside-when="large">
+        <ion-header-bar class="bar-royal">
+          <h1 class="title">Left Menu</h1>
+        </ion-header-bar>
+        <ion-content>
+          <div class="list">
+            <a class="item categories" ng-repeat="category in categories" id="{{category}}" ng-click="showMenu(category, $event)">
+              {{category}}
+            </a>       
+            <br>   
+            <div class="confirm text-center" ng-show="!isOrderComplete && isOrderConfirmed">
+              <i class="icon ion-checkmark-circled large"></i><br>
+              Your order has been placed. It's on the way! Meanwhile, you can add some more items. <br>
+              <i class="icon ion-wineglass"></i>
+              <i class="icon ion-coffee"></i>
+              <i class="icon ion-icecream"></i>
+              <i class="icon ion-pizza"></i>
+              <i class="icon ion-beer"></i>
+            </div>
+            <button class="button button-block button-positive" ng-show="!isPaymentDone && !isBillRequested && isOrderComplete" ng-click="requestBill()"><i class="icon ion-social-usd"></i> Request for bill</button>  
+            <button class="button button button-block button-balanced text-center" ng-show="!isPaymentDone && isBillRequested"><i class="icon ion-social-octocat"></i> Waiting for bill</button> 
+            <button class="button button button-block button-balanced text-center" ng-show="isBillRequested && !isReviewSubmitted" ng-click="login()"><i class="icon ion-android-star"></i> Leave a review</button> 
+            <button class="button button button-block button-balanced text-center" ng-show="isPaymentDone" ng-click="showEmailBill()"><i class="icon ion-paper-airplane"></i> Email the receipt</button> 
+            <button class="button button button-block button-balanced text-center" ng-show="isReviewSubmitted" ng-click="exitTable()"><i class="icon ion-log-out"></i> Exit the table</button> 
+            <!-- <button class="button button-small button-block button-balanced button-clear text-center" ng-show="billRequested">Waiting for bill</button>  -->
+          </div>
+        </ion-content>
+      </ion-side-menu>      
+    </ion-side-menus>

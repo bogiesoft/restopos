@@ -1,0 +1,24 @@
+<ion-view view-title="Kitchen Orders">
+  <ion-content>
+    <div class="list">
+	    <div class="item item-divider">
+	      Ordered Items
+	    </div>
+	    <div class="item item-divider" ng-repeat="table in tables">
+	      {{table}}
+	      <a class="item item-avatar item-button-right" ng-repeat="menuitem in orderedItems[table] track by menuitem.name" ng-show="orderedItems && orderedItems[table] && orderedItems[table].length!=0">
+		      	<img src="img/chibi.png">
+		      	<h2>{{menuitem.name}}</h2>
+		        <p>{{menuitem.desc}}</p>
+		      	<p>${{menuitem.price}}</p>
+		      	<button class="button button-balanced" ng-click="completeItem(menuitem, table)" ng-show="!menuitem.isCompleted"><i class="icon ion-checkmark-circled"></i> &nbsp;&nbsp;Done</button>
+		    </a>
+	    </div>
+	    
+	    <div class="item item-avatar item-button-right" ng-show="tables.length==0">
+	        <img src="img/chibi.png">
+	        <h2>No items ordered</h2>
+	    </div>
+	</div>
+  </ion-content>
+</ion-view>

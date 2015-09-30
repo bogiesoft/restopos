@@ -1,0 +1,758 @@
+<style>
+	.padding, .col, .row{
+		padding: 0px;
+	}
+	.button-clear{
+		font-size: 40px;
+	}
+  	.categories.active{
+    	background-color: #387ef5;
+    	color: white;
+  	}
+  	.item p{
+    	text-overflow: initial;
+    	white-space: normal;
+  	}
+  	.price{
+    	display: inline;
+  	}
+  	.item p.price{
+    	color: #000;
+  	}
+  	.ratings{
+    	float: right;
+  	}
+  	.true{
+    	background-color: rgba(86, 245, 80, 0.35);
+  	}
+  	.confirm{
+	    background-color: #33cd5f;
+	    padding:10px;
+	    margin: 10px;
+	    color: #FFF;
+	    font-weight: bold;
+  	}
+  	.large{
+    	font-size: 50px;
+  	}
+  	.pull-right{
+  		margin: 10px;
+  		float: right;
+  	}
+  	.list.list-inset{
+  		margin: 10px;
+  	}
+  	.list input[type="text"]{
+  		height: 20px;
+  	}
+  	.levels{
+  		text-align: center;
+  		margin-top: 10px;
+  	}
+  	.chartdata{
+  		padding: 10px;
+  	}
+  	.modal-backdrop.fade.in{
+  		opacity: 0;
+  	}
+  	.modal-open .modal{
+  		height: 600px;
+  		margin: 40px;
+  		overflow: scroll;
+  	}
+</style>
+<ion-side-menus>  
+	<ion-view view-title="Admin Control Panel">
+  <ion-side-menu-content>
+    <ion-header-bar class="bar-positive">
+      <button class="button button-icon ion-navicon" ng-click="toggleLeft()" ng-hide="$exposeAside.active"></button>
+      <h1 class="title">Content</h1>
+    </ion-header-bar>
+    <ion-content class="padding">
+  		<div class="list" ng-show="show['Create Menu Item']">
+        	<div class="item item-divider">
+          		Create Menu Item             		
+        	</div>
+        	<div class="row">
+        		<div class="col">
+        			<div class="list">
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Name of the menu item</span>
+					    <input type="text" placeholder="Mexican Green Salad">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Description</span>
+					    <input type="text" placeholder="description of the item">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Price ($)</span>
+					    <input type="text" placeholder="10.25">
+					  </label>
+					</div>
+        		</div>
+        		<div class="col">
+        			<div class="list">
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Category</span>
+					    <input type="text" placeholder="Salads">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Minimum Quantity</span>
+					    <input type="number" placeholder="1">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Report to</span>
+					    <input type="text" placeholder="john@domain.com">
+					  </label>
+					</div>
+        		</div>        		
+        	</div>
+        	<button class="button button-positive pull-right">Create menu item</button>
+	    </div>      	
+	    <div class="list" ng-show="show['Manage Employees']">
+        	<div class="item item-divider">
+          		Manage Employees           		
+        	</div>
+        	<div class="row">
+        		<div class="col">
+        			<div class="list">
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Full name</span>
+					    <input type="text" placeholder="John Doe">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Mobile number</span>
+					    <input type="text" placeholder="+1 8019 123 141">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Description</span>
+					    <input type="text" placeholder="short description">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Current Address</span>
+					    <input type="text" placeholder="Current address">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Permanent Address</span>
+					    <input type="text" placeholder="Permanent address">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">EmailId</span>
+					    <input type="text" placeholder="test@domain.com">
+					  </label>
+					</div>
+					<button class="button button-positive pull-right">Add Employee</button>
+        		</div>
+        		<div class="col">
+        			<div class="list">
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Prince</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Luciano</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Noel</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Amos</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Jake</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Wilson</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Chance</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Kennith</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Oswaldo</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					</div>
+        		</div>        		
+        	</div>        	
+	    </div>      	
+	    <div class="list" ng-show="show['Table Assignment']">
+        	<div class="item item-divider">
+          		Table Assignments             		
+        	</div>
+        	<div class="row">
+        		<div class="col">
+        			<div class="list">
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Select an employee</span>
+					    <input type="text" placeholder="Ron">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Select a table</span>
+					    <input type="text" placeholder="table 1">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Number of days</span>
+					    <input type="text" placeholder="5">
+					  </label>
+					</div>
+        		</div>        		     		
+        	</div>
+        	<button class="button button-positive pull-right">Assign Table</button>
+	    </div>      	
+	    <div class="list" ng-show="show['Waiters Attendance/Payroll']">
+        	<div class="item item-divider">
+          		Attendance & Payroll Management            		
+        	</div>
+        	<div class="row">
+        		<div class="col">
+        			<div class="list">
+					    <a class="item active item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Douglass</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Bradford</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Rolando</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Ricardo</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Arden</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Brice</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Horacio</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Fletcher</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Lucius</h2>
+					      <p>Employee of Starbucks Coffee.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					</div>
+        		</div> 
+        		<div class="col">
+        			<div class="list">
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Full name</span>
+					    <input type="text" value="Egon">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label"># of days worked</span>
+					    <input type="text" placeholder="5">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Pay per hour ($)</span>
+					    <input type="text" placeholder="10">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Current payment ($)</span>
+					    <input type="text" placeholder="100">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Dues ($)</span>
+					    <input type="text" placeholder="10">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Deductions ($)</span>
+					    <input type="text" placeholder="5">
+					  </label>
+					</div>
+					<button class="button button-positive pull-right">Settle Up</button>
+        		</div>        		
+        	</div>
+        	<button class="button button-positive pull-right">Create menu item</button>
+	    </div>      	
+	    <div class="list" ng-show="show['Inventory Management']">
+        	<div class="item item-divider">
+          		Inventory Management             		
+        	</div>
+    		<div class="row">
+    			<div class="col levels"><button class="button button-positive">Meat Products</button> </div>
+    			<div class="col levels"><button class="button button-calm">Oil Products</button> </div>
+    			<div class="col levels"><button class="button button-calm">Flour Products</button> </div>
+    		</div>
+    		<hr>
+    		<div class="row">
+    			<div class="col">
+    				<div class="card">
+					  <div class="item item-divider">
+					    Chicken
+					  </div>
+					  <div class="item item-text-wrap">
+					    130 of 200 kgs left
+					    <progress max="100" value="70"> </progress>
+					  </div>
+					  <div class="item item-divider">
+				        <div class="list list-inset">
+						  <label class="item item-input">
+						    <i class="icon ion-search placeholder-icon"></i>
+						    <input type="text" placeholder="Custom quantity">
+						  </label>
+						</div>
+					  </div>
+					</div>
+    			</div>
+    			<div class="col">
+    				<div class="card">
+					  <div class="item item-divider">
+					    Lamb
+					  </div>
+					  <div class="item item-text-wrap">
+					    80 of 200 kgs left
+					    <progress max="100" value="40"> </progress>
+					  </div>
+					  <div class="item item-divider">
+				        <div class="list list-inset">
+						  <label class="item item-input">
+						    <i class="icon ion-search placeholder-icon"></i>
+						    <input type="text" placeholder="Custom quantity">
+						  </label>
+						</div>
+					  </div>
+					</div>
+    			</div>
+    			<div class="col">
+    				<div class="card">
+					  <div class="item item-divider">
+					    Prawns
+					  </div>
+					  <div class="item item-text-wrap">
+					    150 of 200 kgs left
+					    <progress max="100" value="75"> </progress>
+					  </div>
+					  <div class="item item-divider">
+				        <div class="list list-inset">
+						  <label class="item item-input">
+						    <i class="icon ion-search placeholder-icon"></i>
+						    <input type="text" placeholder="Custom quantity">
+						  </label>
+						</div>
+					  </div>
+					</div>
+    			</div>
+    			<div class="col">
+    				<div class="card">
+					  <div class="item item-divider">
+					    Shrimp
+					  </div>
+					  <div class="item item-text-wrap">
+					    100 of 200 kgs left
+					    <progress max="100" value="50"> </progress>
+					  </div>
+					  <div class="item item-divider">
+				        <div class="list list-inset">
+						  <label class="item item-input">
+						    <i class="icon ion-search placeholder-icon"></i>
+						    <input type="text" placeholder="Custom quantity">
+						  </label>
+						</div>
+					  </div>
+					</div>
+    			</div>
+    		</div>
+	    </div>      	
+	    <div class="list" ng-show="show['Send Email']">
+        	<div class="item item-divider">
+          		Send Mail            		
+        	</div>
+        	<div class="row">
+        		<div class="col">
+        			<div class="list">
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Customer Name</span>
+					    <input type="text" placeholder="John Doe">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Customer Email</span>
+					    <input type="text" placeholder="john@mail.com">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Event Name</span>
+					    <input type="text" placeholder="Christmas Party">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Date</span>
+					    <input type="text" placeholder="dd/mm/yy">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Description</span>
+					    <input type="text" placeholder="long description">
+					  </label>
+					</div>
+        		</div>       		
+        	</div>
+        	<button class="button button-positive pull-right">Send Email</button>
+	    </div>      	
+	    <div class="list" ng-show="show['Predictive Analytics']">
+        	<div class="item item-divider">
+          		Predictive Analytics            		
+        	</div>
+        	<div class="row chartdata">
+    			<div class="container-fluid">
+		            <div class="row">
+		                <div class="col-md-12">
+		                    <div class="table-responsive">
+		                        <table id="business_ratio" class="table table-condensed table-bordered table-striped table-hover table-charts">
+		                            <thead>
+		                                <tr>
+		                                    <th>Business ratio</th>
+		                                    <th class="text-center">Jan.</th>
+		                                    <th class="text-center">Feb.</th>
+		                                    <th class="text-center">Mar.</th>
+		                                    <th class="text-center">Apr.</th>
+		                                    <th class="text-center">May</th>
+		                                    <th class="text-center">June</th>
+		                                    <th class="text-center">July</th>
+		                                    <th class="text-center">Aug.</th>
+		                                    <th class="text-center">Sept.</th>
+		                                    <th class="text-center">Oct.</th>
+		                                    <th class="text-center">Nov.</th>
+		                                    <th class="text-center">Dec.</th>
+		                                </tr>
+		                            </thead>
+		                            <tbody>
+		                                <tr>
+		                                    <td>
+		                                        <a href="#" data-toggle="modal" data-target="#modChart" data-source="65.1,59.47,80.00,81.11,56.67,55.45,40.88,20.45,40.98,80.66,88.34,61.01" data-target-source="50">
+		                                            <span class="glyphicon glyphicon-signal"></span> Actuals
+		                                        </a>
+		                                    </td>
+		                                    <td class="text-right">65.10</td>
+		                                    <td class="text-right">59.47</td>
+		                                    <td class="text-right">80.00</td>
+		                                    <td class="text-right">81.11</td>
+		                                    <td class="text-right">56.67</td>
+		                                    <td class="text-right">55.45</td>
+		                                    <td class="text-right">40.88</td>
+		                                    <td class="text-right">20.45</td>
+		                                    <td class="text-right">40.98</td>
+		                                    <td class="text-right">80.66</td>
+		                                    <td class="text-right">88.34</td>
+		                                    <td class="text-right">61.01</td>
+		                                </tr>
+		                                <tr>
+		                                    <td>
+		                                        <a href="#" data-toggle="modal" data-target="#modChart" data-source="70,13,20,90,44,12,30,30,30,10,5,0" data-target-source="34">
+		                                            <span class="glyphicon glyphicon-signal"></span> Prediction
+		                                        </a>
+		                                    </td>
+		                                    <td class="text-right">70</td>
+		                                    <td class="text-right">13</td>
+		                                    <td class="text-right">20</td>
+		                                    <td class="text-right">90</td>
+		                                    <td class="text-right">44</td>
+		                                    <td class="text-right">12</td>
+		                                    <td class="text-right">30</td>
+		                                    <td class="text-right">30</td>
+		                                    <td class="text-right">30</td>
+		                                    <td class="text-right">10</td>
+		                                    <td class="text-right">5</td>
+		                                    <td class="text-right">0</td>
+		                                </tr>
+		                            </tbody>
+		                        </table>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        
+		        <div class="modal fade" id="modChart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		            <div class="modal-dialog">
+		                <div class="modal-content">
+		                    <div class="modal-header">
+		                        <button type="button" class="close" data-dismiss="modal">
+		                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		                        </button>
+		                        <h4 class="modal-title" id="exampleModalLabel">Linechart</h4>
+		                    </div>
+		                    <div class="modal-body">
+		                        <canvas id="canvas"></canvas>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>		         		
+        	</div>
+        	<div class="row">
+        		<div class="col" style="padding:5px;">
+    				<div class="card">
+					  <div class="item item-divider">
+					    Inflation
+					  </div>
+					  <div class="item item-text-wrap">
+					    Price increase on average
+					    <progress max="100" value="70"> </progress>
+					  </div>
+					  <div class="item item-divider">
+				        <div class="list list-inset">
+						  <label class="item item-input">
+						    <i class="icon ion-search placeholder-icon"></i>
+						    <input type="text" placeholder="Add comments">
+						  </label>
+						</div>
+					  </div>
+					</div>
+    			</div>
+    			<div class="col" style="padding:5px;">
+    				<div class="card">
+					  <div class="item item-divider">
+					    Ratings
+					  </div>
+					  <div class="item item-text-wrap">
+					    Overall customer satisfation
+					    <progress max="100" value="80"> </progress>
+					  </div>
+					  <div class="item item-divider">
+				        <div class="list list-inset">
+						  <label class="item item-input">
+						    <i class="icon ion-search placeholder-icon"></i>
+						    <input type="text" placeholder="Add comments">
+						  </label>
+						</div>
+					  </div>
+					</div>
+    			</div>
+        	</div>
+	    </div>      	
+	    <!-- <div class="list" ng-show="show['Send Coupons']">
+        	<div class="item item-divider">
+          		Send Coupons             		
+        	</div>
+        	<div class="row">
+        		<div class="col">
+        			<div class="list">
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Select a customer</span>
+					    <input type="text" placeholder="Brad Pitt">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Message</span>
+					    <input type="text" placeholder="Short thanks message">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Coupon Code</span>
+					    <input type="text" placeholder="CAKE30">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Email Id</span>
+					    <input type="text" placeholder="brad@pitt.com">
+					  </label>
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Mobile Number</span>
+					    <input type="text" placeholder="8019 123 141">
+					  </label>
+					</div>
+        		</div>
+        	</div>
+        	<button class="button button-positive pull-right">Send Coupon</button>
+	    </div>       -->	
+	    <div class="list" ng-show="show['Valuable Customers']">
+        	<div class="item item-divider">
+          		List of Valuable Customers             		
+        	</div>
+        	<div class="row">
+        		<div class="col">
+        			<div class="list">
+					    <a class="item active item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Bradly</h2>
+					      <p>14 Visits, Total bill $760, 35 Items ordered.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Isaias</h2>
+					      <p>13 Visits, Total bill $660, 31 Items ordered.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Dino</h2>
+					      <p>13 Visits, Total bill $580, 31 Items ordered.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Truman</h2>
+					      <p>12 Visits, Total bill $460, 29 Items ordered.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Frankie</h2>
+					      <p>11 Visits, Total bill $450, 25 Items ordered.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Gregg</h2>
+					      <p>9 Visits, Total bill $400, 23 Items ordered.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Homer</h2>
+					      <p>9 Visits, Total bill $330, 23 Items ordered.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Dallas</h2>
+					      <p>8 Visits, Total bill $320, 20 Items ordered.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					    <a class="item item-avatar item-button-right" href="#">
+					      <img src="img/venkman.jpg">
+					      <h2>Johnathon</h2>
+					      <p>7 Visits, Total bill $260, 19 Items ordered.</p>
+					      <button class="button button-clear button-positive">
+					      	<i class="icon ion-ios-minus-outline"></i>
+					      </button>
+					    </a>
+					</div>
+        		</div>        		
+        	</div>
+	    </div>      	
+    </ion-content>
+  </ion-side-menu-content>
+
+  <ion-side-menu expose-aside-when="large">
+    <ion-header-bar class="bar-royal">
+      <h1 class="title">Left Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list">
+        <a ng-class="{active: $first}" class="item categories" ng-repeat="category in categories" id="{{category}}" ng-click="showMenu(category, $event)">
+          {{category}}
+        </a>       
+        <br>   
+        <div class="confirm text-center" ng-show="!isOrderComplete && isOrderConfirmed">
+          <i class="icon ion-checkmark-circled large"></i><br>
+          Your order has been placed. It's on the way! Meanwhile, you can add some more items. <br>
+          <i class="icon ion-wineglass"></i>
+          <i class="icon ion-coffee"></i>
+          <i class="icon ion-icecream"></i>
+          <i class="icon ion-pizza"></i>
+          <i class="icon ion-beer"></i>
+        </div>
+        <button class="button button-block button-positive" ng-show="!isPaymentDone && !isBillRequested && isOrderComplete" ng-click="requestBill()"><i class="icon ion-social-usd"></i> Request for bill</button>  
+        <button class="button button button-block button-balanced text-center" ng-show="!isPaymentDone && isBillRequested"><i class="icon ion-social-octocat"></i> Waiting for bill</button> 
+        <button class="button button button-block button-balanced text-center" ng-show="isBillRequested && !isReviewSubmitted" ng-click="login()"><i class="icon ion-android-star"></i> Leave a review</button> 
+        <button class="button button button-block button-balanced text-center" ng-show="isPaymentDone" ng-click="showEmailBill()"><i class="icon ion-paper-airplane"></i> Email the receipt</button> 
+        <button class="button button button-block button-balanced text-center" ng-show="isReviewSubmitted" ng-click="exitTable()"><i class="icon ion-log-out"></i> Exit the table</button> 
+        <!-- <button class="button button-small button-block button-balanced button-clear text-center" ng-show="billRequested">Waiting for bill</button>  -->
+      </div>
+    </ion-content>
+  </ion-side-menu>      
+</ion-side-menus>

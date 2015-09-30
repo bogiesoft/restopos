@@ -1,0 +1,40 @@
+<style>
+	.col-33{
+		margin: 20px 0;
+	}
+  .card, .list-inset{
+      background-color: transparent;
+  }
+  .required{
+    border-left: 3px solid red;
+  }
+</style>
+<ion-side-menus>
+  <ion-view view-title="">
+    <ion-content style="background:url('img/bg.jpg')">
+      <div class="row">
+      	<div class="col-33"></div>
+          <div class="col-33 text-center"><h2 style="color:#FFF">Welcome Guest</h2></div>
+          <div class="col-33"></div>
+      </div>
+      <div class="row">
+          <div class="col-33"></div>
+          <div class="col-33">
+              <div class="list list-inset">
+                <label class="item item-input" id="name">
+                  <input type="text" placeholder="Your Name" ng-model="details.name">
+                </label>
+                <label class="item item-input" id="email">
+                  <input type="text" placeholder="Email ID" ng-model="details.email">
+                </label>
+                <label class="item item-input" id="mobile">
+                  <input type="text" placeholder="Mobile Number" ng-model="details.mobile">
+                </label>
+                <a ng-click="openMenu()" class="button button-block button-positive">Access Menu</a>
+              </div>
+          </div>
+          <div class="col-33"></div>
+      </div>
+    </ion-content>
+  </ion-view>
+</ion-side-menus>

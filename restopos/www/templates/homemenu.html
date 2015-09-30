@@ -1,0 +1,367 @@
+<style>
+	.col{
+		margin: 20px 0;
+	}
+	.tables1 .icon{
+		font-size: 90px;
+		color: #387ef5;
+	}
+	a{
+		text-decoration: none;
+        cursor: pointer;
+	}
+    .row.tables1{
+        margin-top: 90px;
+    }
+    .back.item{
+        padding: 25px;
+    }
+    .back.button{
+        margin-top: 12px;
+    }
+</style>
+<ion-side-menus>
+<ion-view view-title="Explore our restaurant">
+  <ion-content>
+    <div class="row tables1" ng-show="menu">
+    	<div class="col text-center"><a ng-click="showReviews()"><i class="icon ion-android-favorite"></i> <br> Reviews</a></div>
+    	<div class="col text-center"><a ng-click="showFoodMenu()"><i class="icon ion-android-restaurant"></i> <br> Menu</a></div>
+    	<div class="col text-center"><a ng-click="showHistory()"><i class="icon ion-android-time"></i> <br> My History</a></div>
+        <div class="col text-center"><a ng-click="showPaper()"><i class="icon ion-ios-paper"></i> <br> E-Paper</a></div>
+    </div>    
+    <div ng-show="history">
+        <a class="back item item-button-right" ng-click="showMenu()">
+            <h2>Your Order History</h2>
+            <button class="back button button-positive">
+                <i class="icon ion-ios-arrow-back"></i>&nbsp; Back
+            </button>
+        </a>
+        <div class="item item-divider ng-binding">
+          27th July 2015
+          <a class="item item-avatar item-button-right">
+                <img src="img/chibi.png">
+                <h2 class="ng-binding">Mixed Garden Salad</h2>
+                <p class="ng-binding">Selection of fresh seasonal garden greens garnished with cherry tomatoes and cucumber tossed in balsamic dressing</p>
+                <p class="ng-binding">$4.95</p>
+            </a>
+            <a class="item item-avatar item-button-right">
+                <img src="img/chibi.png">
+                <h2 class="ng-binding">Tomato and Mozarella Salad</h2>
+                <p class="ng-binding">Mozarella cheese with fresh tomato, served with basil pesto, balsamic glace and crushed pepper</p>
+                <p class="ng-binding">$5.75</p>                
+            </a>
+            <a class="item item-avatar item-button-right">
+                <img src="img/chibi.png">
+                <h2 class="ng-binding">International Cheese Platter</h2>
+                <p class="ng-binding">A selection of five international cheese including brie, blue, goat and hard cheese. Served with baguette, butter and fruit mustard</p>
+                <p class="ng-binding">$8.75</p>                
+            </a>
+        </div>
+        <div class="item item-divider ng-binding">
+          12th July 2015
+          <a class="item item-avatar item-button-right">
+                <img src="img/chibi.png">
+                <h2 class="ng-binding">Pizza and Pasta</h2>
+                <p class="ng-binding">Margherita Pizza</p>
+                <p class="ng-binding">$4.95</p>
+            </a>
+            <a class="item item-avatar item-button-right">
+                <img src="img/chibi.png">
+                <h2 class="ng-binding">Pepperoni Pizza</h2>
+                <p class="ng-binding">Spicy pepperoni salami, jalapenos, tomato and mozarella cheese</p>
+                <p class="ng-binding">$5.75</p>                
+            </a>
+            <a class="item item-avatar item-button-right">
+                <img src="img/chibi.png">
+                <h2 class="ng-binding">International Cheese Platter</h2>
+                <p class="ng-binding">A selection of five international cheese including brie, blue, goat and hard cheese. Served with baguette, butter and fruit mustard</p>
+                <p class="ng-binding">$8.75</p>                
+            </a>
+        </div>
+    </div>
+    <div ng-show="reviews">
+        <a class="back item item-button-right" ng-click="showMenu()">
+            <h2>Reviews of this restaurant - From Yelp & Zomato</h2>
+            <button class="back button button-positive">
+                <i class="icon ion-ios-arrow-back"></i>&nbsp; Back
+            </button>
+        </a>
+        <div class="row">
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                    <span class="ratings">
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star-half"></i>
+                    </span>
+                  </div>
+                  <div class="item item-body">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                    <p>
+                      <a href="#" class="subdued">21 Likes</a>
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                    <span class="ratings">
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star-half"></i>
+                    </span>
+                  </div>
+                  <div class="item item-body">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                    <p>
+                      <a href="#" class="subdued">21 Likes</a>
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                    <span class="ratings">
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star-half"></i>
+                    </span>
+                  </div>
+                  <div class="item item-body">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                    <p>
+                      <a href="#" class="subdued">21 Likes</a>
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                    <span class="ratings">
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star-half"></i>
+                    </span>
+                  </div>
+                  <div class="item item-body">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                    <p>
+                      <a href="#" class="subdued">21 Likes</a>
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                    <span class="ratings">
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star-half"></i>
+                    </span>
+                  </div>
+                  <div class="item item-body">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                    <p>
+                      <a href="#" class="subdued">21 Likes</a>
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                    <span class="ratings">
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star"></i>
+                    <i class="icon ion-ios-star-half"></i>
+                    </span>
+                  </div>
+                  <div class="item item-body">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                    <p>
+                      <a href="#" class="subdued">21 Likes</a>
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="epaper">
+        <a class="back item item-button-right" ng-click="showMenu()">
+            <h2>Today's News</h2>
+            <button class="back button button-positive">
+                <i class="icon ion-ios-arrow-back"></i>&nbsp; Back
+            </button>
+        </a>
+        <div class="row">
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                  </div>
+                  <div class="item item-body">
+                    <img class="full-image" src="img/beverage.jpg">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                  </div>
+                  <div class="item item-body">
+                    <img class="full-image" src="img/beverage.jpg">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                  </div>
+                  <div class="item item-body">
+                    <img class="full-image" src="img/beverage.jpg">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                  </div>
+                  <div class="item item-body">
+                    <img class="full-image" src="img/beverage.jpg">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                  </div>
+                  <div class="item item-body">
+                    <img class="full-image" src="img/beverage.jpg">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-33">
+                <div class="list card">
+                  <div class="item item-avatar">
+                    <img src="img/mcfly.jpg">
+                    <h2>Marty McFly</h2>
+                    <p>June 15, 2015</p>
+                  </div>
+                  <div class="item item-body">
+                    <img class="full-image" src="img/beverage.jpg">
+                    <p>
+                      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                      the content is from a card-body consisting of an image and paragraph text. The footer
+                      consists of tabs, icons aligned left, within the card-footer.
+                    </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+  </ion-content>
+</ion-view>
+</ion-side-menus>

@@ -1,0 +1,46 @@
+<ion-side-menus>
+<ion-view view-title="Bill Payment & Confirmation">
+  <ion-content>
+    <div class="list">
+      <div class="item item-divider">
+        Ordered Items        
+      </div>
+      <div class="item item-divider">
+        <a class="item item-avatar item-button-right" ng-repeat="menuitem in orderedItems track by menuitem.name" ng-show="orderedItems && orderedItems.length!=0">
+            <img src="img/chibi.png">
+            <h2>{{menuitem.name}}</h2>
+            <p>{{menuitem.desc}}</p>
+            <p>${{menuitem.price}}</p>            
+        </a>
+      </div>
+      <div class="row" ng-show="orderedItems && orderedItems.length!=0">
+        <div class="col">
+          <h3>Amount Payable: $ {{cartTotal}}</h3>
+        </div>
+        <div class="col">
+          <div class="list">
+
+            <div class="item item-input-inset">
+              <label class="item-input-wrapper">
+                <input type="text" placeholder="COUPON CODE">
+              </label>
+              <button class="button button-small">
+                Apply
+              </button>
+            </div>
+
+          </div>
+        </div>
+        <div class="col"></div>
+        <div class="col">
+          <button class="button button-balanced" ng-click="confirmPayment()">Confirm Payment</button>
+        </div>
+      </div>
+      <div class="item item-avatar item-button-right" ng-show="orderedItems.length==0">
+          <img src="img/chibi.png">
+          <h2>No items ordered</h2>
+      </div>
+  </div>
+  </ion-content>
+</ion-view>
+</ion-side-menus>
